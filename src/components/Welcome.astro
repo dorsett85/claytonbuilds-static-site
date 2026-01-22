@@ -1,8 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import LinkedInIcon from './icons/LinkedInIcon.astro';
-import GitHubIcon from './icons/GitHubIcon.astro';
-import InstagramIcon from './icons/InstagramIcon.astro';
+import Header from './Header.astro';
+import SocialLinks from './SocialLinks.astro';
 
 // Import project images
 import checkMateImg from '../assets/projects-check-mate.png';
@@ -19,7 +18,7 @@ const projects = [
 		title: "Check Mate",
 		description: "Blazing fast AI powered bill splitting with OCR and private link sharing.",
 		image: checkMateImg,
-		alt: "Check Mate chess application screenshot",
+		alt: "Check Mate application screenshot",
 		href: "https://check-mate.cphillipsdorsett.com/"
 	},
 	{
@@ -53,52 +52,7 @@ const projects = [
 ];
 ---
 
-<!-- Header with a collapsible menu -->
-<header class="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm">
-	<nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-		<div class="flex h-16 items-center justify-between">
-			<!-- Logo/Brand -->
-			<div class="flex-shrink-0">
-				<span class="text-xl font-bold text-gray-900 dark:text-white">Clayton Builds</span>
-			</div>
-
-			<!-- Desktop Navigation -->
-			<div class="hidden md:flex md:gap-x-8">
-				<a href="#projects" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a>
-				<a href="#about" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
-				<a href="#contact" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
-			</div>
-
-			<div class="flex items-center gap-2">
-				<!-- Dark Mode Toggle -->
-				<button id="theme-toggle" type="button" class="p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
-					<svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-						<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-					</svg>
-					<svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-						<path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-					</svg>
-				</button>
-
-				<!-- Mobile menu button -->
-				<button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
-					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-					</svg>
-				</button>
-			</div>
-		</div>
-
-		<!-- Mobile Navigation (collapsible) -->
-		<div class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out" id="mobile-menu-container">
-			<div class="space-y-1 pb-3 pt-2">
-				<a href="#projects" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">Projects</a>
-				<a href="#about" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">About</a>
-				<a href="#contact" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">Contact</a>
-			</div>
-		</div>
-	</nav>
-</header>
+<Header />
 
 <!-- Main Content -->
 <main class="min-h-screen">
@@ -118,16 +72,8 @@ const projects = [
 				hesitate to connect.
 			</p>
 			<div class="flex flex-wrap justify-center gap-4">
-				<a href="https://www.linkedin.com/in/clayton-phillips-dorsett-7875b9164/" class="inline-flex items-center justify-center p-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="LinkedIn">
-					<LinkedInIcon />
-				</a>
-				<a href="https://github.com/dorsett85" class="inline-flex items-center justify-center p-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="GitHub">
-					<GitHubIcon />
-				</a>
-				<a href="https://www.instagram.com/dorsett85" class="inline-flex items-center justify-center p-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Instagram">
-					<InstagramIcon />
-				</a>
-				<a href="https://docs.google.com/document/d/1THmGxKeZnRVv0OjqgXTP3JBlfv7JWsUpqVwuyg14dEc/export?format=pdf" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl">
+				<SocialLinks variant="hero" />
+				<a href="https://docs.google.com/document/d/1THmGxKeZnRVv0OjqgXTP3JBlfv7JWsUpqVwuyg14dEc/export?format=pdf" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl">
 					CV
 				</a>
 			</div>
@@ -204,71 +150,8 @@ const projects = [
 		<div class="flex flex-col sm:flex-row items-center justify-between gap-4">
 			<p class="text-sm text-gray-600 dark:text-gray-400">© {year} Clayton Phillips-Dorsett. All rights reserved.</p>
 			<div class="flex gap-6">
-				<a href="https://www.linkedin.com/in/clayton-phillips-dorsett-7875b9164/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="LinkedIn">
-					<LinkedInIcon />
-				</a>
-				<a href="https://github.com/dorsett85" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="GitHub">
-					<GitHubIcon />
-				</a>
-				<a href="https://www.instagram.com/dorsett85" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Instagram">
-					<InstagramIcon />
-				</a>
+				<SocialLinks variant="footer" />
 			</div>
 		</div>
 	</div>
 </footer>
-
-<script>
-	// Dark mode toggle functionality
-	const themeToggleBtn = document.getElementById('theme-toggle');
-	const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-	const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-	// Show the correct icon based on current theme
-	if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-		themeToggleLightIcon?.classList.remove('hidden');
-	} else {
-		themeToggleDarkIcon?.classList.remove('hidden');
-	}
-
-	themeToggleBtn?.addEventListener('click', function() {
-		// Toggle icons
-		themeToggleDarkIcon?.classList.toggle('hidden');
-		themeToggleLightIcon?.classList.toggle('hidden');
-
-		// Toggle theme
-		if (document.documentElement.classList.contains('dark')) {
-			document.documentElement.classList.remove('dark');
-			localStorage.theme = 'light';
-		} else {
-			document.documentElement.classList.add('dark');
-			localStorage.theme = 'dark';
-		}
-	});
-
-	// Mobile menu toggle functionality
-	const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-	const mobileMenuContainer = document.getElementById('mobile-menu-container');
-	let isMenuOpen = false;
-
-	mobileMenuBtn?.addEventListener('click', function() {
-		isMenuOpen = !isMenuOpen;
-		if (isMenuOpen) {
-			mobileMenuContainer?.classList.remove('max-h-0');
-			mobileMenuContainer?.classList.add('max-h-48');
-		} else {
-			mobileMenuContainer?.classList.remove('max-h-48');
-			mobileMenuContainer?.classList.add('max-h-0');
-		}
-	});
-
-	// Close mobile menu when clicking on a link
-	document.querySelectorAll('#mobile-menu-container a').forEach(link => {
-		link.addEventListener('click', () => {
-			isMenuOpen = false;
-			mobileMenuContainer?.classList.remove('max-h-48');
-			mobileMenuContainer?.classList.add('max-h-0');
-		});
-	});
-</script>
-

@@ -1,0 +1,58 @@
+---
+import LinkedInIcon from './icons/LinkedInIcon.astro';
+import GitHubIcon from './icons/GitHubIcon.astro';
+import InstagramIcon from './icons/InstagramIcon.astro';
+
+interface Props {
+	variant?: 'hero' | 'footer';
+}
+
+const { variant = 'hero' } = Astro.props;
+
+const socialLinks = [
+	{
+		name: 'LinkedIn',
+		href: 'https://www.linkedin.com/in/clayton-phillips-dorsett',
+		icon: LinkedInIcon
+	},
+	{
+		name: 'GitHub',
+		href: 'https://github.com/dorsett85',
+		icon: GitHubIcon
+	},
+	{
+		name: 'Instagram',
+		href: 'https://www.instagram.com/dorsett85',
+		icon: InstagramIcon
+	}
+];
+
+const heroClasses = "inline-flex items-center justify-center p-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors";
+const footerClasses = "text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors";
+---
+
+{variant === 'hero' && (
+	<>
+		{socialLinks.map((link) => {
+			const Icon = link.icon;
+			return (
+				<a href={link.href} class={heroClasses} aria-label={link.name} target="_blank" rel="noopener noreferrer">
+					<Icon />
+				</a>
+			);
+		})}
+	</>
+)}
+
+{variant === 'footer' && (
+	<>
+		{socialLinks.map((link) => {
+			const Icon = link.icon;
+			return (
+				<a href={link.href} class={footerClasses} aria-label={link.name} target="_blank" rel="noopener noreferrer">
+					<Icon />
+				</a>
+			);
+		})}
+	</>
+)}
