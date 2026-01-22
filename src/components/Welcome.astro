@@ -90,15 +90,31 @@ const projects = [
 <!-- Main Content -->
 <main class="min-h-screen">
 	<!-- Hero Section -->
-	<section id="hero" class="px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-		<div class="mx-auto max-w-4xl text-center">
-			<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
+	<section id="hero" class="relative px-4 sm:px-6 lg:px-8 py-20 sm:py-32 overflow-hidden">
+		<!-- Background Image -->
+		<div class="absolute inset-0 z-0">
+			<Image
+				src={mtReynolds}
+				alt="Mountain landscape background"
+				class="w-full h-full object-cover"
+				widths={[800, 1200, 1600, 2000]}
+				sizes="100vw"
+				loading="eager"
+				quality={90}
+			/>
+			<!-- Overlay for better text contrast -->
+			<div class="absolute inset-0 bg-black/60 dark:bg-black/70"></div>
+		</div>
+
+		<!-- Content -->
+		<div class="relative z-10 mx-auto max-w-4xl text-center">
+			<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 drop-shadow-lg">
 				Welcome!
 			</h1>
-			<h2 class="text-xl sm:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300 mb-6">
+			<h2 class="text-xl sm:text-2xl lg:text-3xl text-white/95 mb-6 drop-shadow-md">
 				I'm Clayton Phillips-Dorsett, Software Developer/Architect
 			</h2>
-			<p class="text-lg text-gray-700 dark:text-gray-300 mb-12">
+			<p class="text-lg text-white/90 mb-12 drop-shadow-md">
 				I specialize in full-stack development with extensive experience
 				designing, architecting, and deploying enterprise level software.
 				Check out my CV below for more detailed experience and don't
