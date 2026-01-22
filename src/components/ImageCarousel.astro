@@ -187,21 +187,21 @@ const { images } = Astro.props;
 		}
 
 		private startAutoPlay() {
+			this.stopAutoPlay(); // Clear any existing interval first
 			this.autoPlayInterval = window.setInterval(() => {
 				this.goToSlide(this.currentIndex + 1);
 			}, 5000); // Change slide every 5 seconds
 		}
 
 		private stopAutoPlay() {
-			if (this.autoPlayInterval) {
+			if (this.autoPlayInterval !== null) {
 				clearInterval(this.autoPlayInterval);
 				this.autoPlayInterval = null;
 			}
 		}
 
 		private resetAutoPlay() {
-			this.stopAutoPlay();
-			this.startAutoPlay();
+			this.startAutoPlay(); // startAutoPlay now handles stopping first
 		}
 
 		private handleSwipe: () => void = () => {};
