@@ -1,7 +1,8 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from 'astro:assets'
 import Header from './Header.astro';
 import SocialLinks from './SocialLinks.astro';
+import ImageCarousel from './ImageCarousel.astro';
 
 // Import project images
 import checkMateImg from '../assets/projects-check-mate.png';
@@ -10,7 +11,39 @@ import teamSweeperImg from '../assets/projects-team-sweeper.png';
 import tripBuddyImg from '../assets/projects-trip-buddy.png';
 import workoutTrackerImg from '../assets/projects-workout-tracker.png';
 
+// Import carousel images
+import bellyRiverFloat from '../assets/clayton-belly-river-float.jpg';
+import climbingBlackCanyon from '../assets/clayton-climbing-black-canyon.jpg';
+import conradHikingFells from '../assets/conrad-hiking-fells.jpg';
+import climbingDonnerPass from '../assets/clayton-climbing-donner-pass.jpg';
+import climbingEldoradoCanyon from '../assets/clayton-climbing-eldorado-canyon.jpg';
+import climbingFarleyLedge from '../assets/clayton-climbing-farley-ledge.jpg';
+import climbingRumney from '../assets/clayton-climbing-rumney.jpg';
+import climbingUtahTower from '../assets/clayton-climbing-utah-tower.jpg';
+import mtReynolds from '../assets/clayton-hiking-mt-reynolds.jpg';
+import iceClimbingSilverton from '../assets/clayton-ice-climbing-silverton.jpg';
+import touringLoganPass from '../assets/clayton-touring-logan-pass.jpg';
+import touringMtBrown from '../assets/clayton-touring-mt-brown.jpeg';
+import touringOuray from '../assets/clayton-touring-ouray.jpg';
+
 const year = new Date().getFullYear();
+
+// Carousel images
+const carouselImages = [
+	{ src: mtReynolds, alt: "Hiking at Mt. Reynolds" },
+	{ src: touringOuray, alt: "Touring at Ouray" },
+	{ src: climbingFarleyLedge, alt: "Climbing at Farley Ledge" },
+	{ src: conradHikingFells, alt: "Conrad hiking at Fells" },
+	{ src: bellyRiverFloat, alt: "Floating the belly river" },
+	{ src: climbingRumney, alt: "Climbing at Rumney" },
+	{ src: touringMtBrown, alt: "Touring at Mt. Brown" },
+	{ src: climbingBlackCanyon, alt: "Climbing at Black Canyon" },
+	{ src: climbingUtahTower, alt: "Climbing a Utah tower" },
+	{ src: iceClimbingSilverton, alt: "Ice climbing at Silverton" },
+	{ src: climbingDonnerPass, alt: "Climbing at Donner Pass" },
+	{ src: touringLoganPass, alt: "Touring at Logan Pass" },
+	{ src: climbingEldoradoCanyon, alt: "Climbing at Eldorado Canyon" },
+];
 
 // Project data
 const projects = [
@@ -73,7 +106,7 @@ const projects = [
 			</p>
 			<div class="flex flex-wrap justify-center gap-4">
 				<SocialLinks variant="hero" />
-				<a href="https://docs.google.com/document/d/1THmGxKeZnRVv0OjqgXTP3JBlfv7JWsUpqVwuyg14dEc/export?format=pdf" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl">
+				<a href="https://drive.google.com/file/d/1THmGxKeZnRVv0OjqgXTP3JBlfv7JWsUpqVwuyg14dEc/view" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl">
 					CV
 				</a>
 			</div>
@@ -122,14 +155,14 @@ const projects = [
 
 	<!-- About Section -->
 	<section id="about" class="px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-		<div class="mx-auto max-w-4xl">
+		<div class="mx-auto max-w-6xl">
 			<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">About me</h2>
-			<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+			<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
 				I grew up in beautiful southern Vermont and continue to enjoy all
 				things active and outdoors. When I'm not developing you can find me
-				on a mountain climbing or snowboarding.
+				on a mountain climbing, snowboarding, or hiking with my dog Conrad.
 			</p>
-			<div class="mt-8"><!-- TODO this will shows images, perhaps in a carousel --></div>
+			<ImageCarousel images={carouselImages} />
 		</div>
 	</section>
 
