@@ -3,15 +3,26 @@ import '../styles/global.css';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Clayton Phillips-Dorsett Professional Site</title>
+		<script is:inline>
+			// Initialize dark mode from localStorage or default to dark
+			if (!localStorage.theme) {
+				localStorage.theme = 'dark';
+			}
+			if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+		</script>
 	</head>
-	<body>
+	<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
 		<slot />
 	</body>
 </html>
