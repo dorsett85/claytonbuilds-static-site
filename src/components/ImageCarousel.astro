@@ -29,8 +29,8 @@ const { images } = Astro.props;
 					class="w-full h-auto max-h-[600px] object-contain"
 					widths={[400, 600, 800, 1000]}
 					sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 800px"
-					loading="lazy"
-					decoding="async"
+					fetchpriority={'low'}
+					quality={70}
 				/>
 			</div>
 		))}

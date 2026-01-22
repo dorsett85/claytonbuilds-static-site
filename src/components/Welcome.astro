@@ -101,7 +101,7 @@ const projects = [
 				sizes="100vw"
 				loading="eager"
 				fetchpriority="high"
-				quality={90}
+				quality={80}
 			/>
 			<!-- Overlay for better text contrast -->
 			<div class="absolute inset-0 bg-black/60 dark:bg-black/70"></div>
@@ -152,8 +152,8 @@ const projects = [
 								class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
 								widths={[400, 600, 800]}
 								sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-								loading="lazy"
-								decoding="async"
+								fetchpriority={'low'}
+								quality={70}
 							/>
 						</div>
 
